@@ -3,5 +3,33 @@
 
 <div class="hub-card">
     <h1>Dashboard</h1>
-    <p>Operational dashboard placeholder.</p>
+
+    <table id="jobs">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Job</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 </div>
+
+@section Scripts {
+<script>
+    fetch('/api/test')
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.querySelector('#jobs tbody');
+            data.forEach(job => {
+                const row = `<tr>
+                    <td>${job.id}</td>
+                    <td>${job.job}</td>
+                    <td>${job.status}</td>
+                </tr>`;
+                tbody.innerHTML += row;
+            });
+        });
+</script>
+}

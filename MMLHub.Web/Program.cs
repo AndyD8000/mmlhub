@@ -23,4 +23,13 @@ app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
 
+app.MapGet("/api/test", () =>
+{
+    return new[]
+    {
+        new { id = 1, job = "Test Job 1", status = "Open" },
+        new { id = 2, job = "Test Job 2", status = "Closed" }
+    };
+});   
+
 app.Run();
