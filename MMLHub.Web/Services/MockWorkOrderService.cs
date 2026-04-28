@@ -43,3 +43,9 @@ public class MockWorkOrderService : IWorkOrderService
         return Task.FromResult(workOrders);
     }
 }
+
+public async Task<WorkOrder?> GetWorkOrderByIdAsync(int id)
+{
+    var workOrders = await GetWorkOrdersAsync();
+    return workOrders.FirstOrDefault(x => x.Id == id);
+}

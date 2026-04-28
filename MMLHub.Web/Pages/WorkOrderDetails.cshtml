@@ -1,0 +1,29 @@
+@page
+@model MMLHub.Web.Pages.WorkOrderDetailsModel
+
+@if (Model.WorkOrder != null)
+{
+    <div class="hub-card">
+        <h1>@Model.WorkOrder.Reference</h1>
+
+        <p><strong>Client:</strong> @Model.WorkOrder.ClientName</p>
+        <p><strong>Site:</strong> @Model.WorkOrder.SiteName</p>
+        <p><strong>Status:</strong> @Model.WorkOrder.Status</p>
+        <p><strong>Logged:</strong> @Model.WorkOrder.LoggedDate.ToString("dd/MM/yyyy")</p>
+
+        <hr />
+
+        <h2>Description</h2>
+        <p>@Model.WorkOrder.Description</p>
+
+        <h2>Notes</h2>
+        <p>Notes will appear here later.</p>
+
+        <h2>Attachments</h2>
+        <p>Attachments will appear here later.</p>
+
+        <p>
+            <a asp-page="/WorkOrders">Back to Work Orders</a>
+        </p>
+    </div>
+}

@@ -42,7 +42,11 @@
             @foreach (var order in Model.WorkOrders)
             {
                 <tr>
-                    <td>@order.Reference</td>
+                    <td>
+                        <a asp-page="/WorkOrderDetails" asp-route-id="@order.Id">
+                            @order.Reference
+                        </a>
+                    </td>
                     <td>@order.ClientName</td>
                     <td>@order.SiteName</td>
                     <td>@order.Description</td>
