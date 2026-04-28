@@ -3,5 +3,30 @@
 
 <div class="hub-card">
     <h1>Work Orders</h1>
-    <p>Work order list placeholder.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Reference</th>
+                <th>Client</th>
+                <th>Site</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Logged</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.WorkOrders)
+            {
+                <tr>
+                    <td>@order.Reference</td>
+                    <td>@order.ClientName</td>
+                    <td>@order.SiteName</td>
+                    <td>@order.Description</td>
+                    <td>@order.Status</td>
+                    <td>@order.LoggedDate.ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
