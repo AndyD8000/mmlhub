@@ -40,6 +40,7 @@ app.MapPost("/api/jobs", (WorkOrder job) =>
 {
     job.Id = MMLHub.Web.Services.InMemoryWorkOrderStore.NextId;
     job.LoggedDate = DateTime.Now;
+    job.ClientName = job.ClientId == 1 ? "Client A" : "Client B";
 
     MMLHub.Web.Services.InMemoryWorkOrderStore.WorkOrders.Add(job);
 

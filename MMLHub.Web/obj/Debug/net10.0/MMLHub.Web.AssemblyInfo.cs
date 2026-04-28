@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MMLHub.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1eb1e68beca9059cd0fded287a3d20ea9cb84be5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d82460a6cc5c8abeda0058b8eca390a2b8d254c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MMLHub.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MMLHub.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

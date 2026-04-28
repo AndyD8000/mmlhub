@@ -27,9 +27,14 @@ public class WorkOrdersModel : PageModel
     public int InProgress => WorkOrders.Count(x => x.Status == "In Progress");
     public int Closed => WorkOrders.Count(x => x.Status == "Closed");
 
+    public int CurrentClientId => 1; // simulate logged-in client
+
     public async Task OnGetAsync()
     {
         var data = await _service.GetWorkOrdersAsync();
+
+        // 👇 Add this filter FIRST
+        data = data.Where(x => x.ClientId == CurrentClientId).ToList();
 
         if (!string.IsNullOrWhiteSpace(Search))
         {

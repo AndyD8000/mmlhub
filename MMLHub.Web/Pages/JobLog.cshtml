@@ -6,7 +6,10 @@
 
     <form id="jobForm">
         <input name="Reference" placeholder="Reference" required />
-        <input name="ClientName" placeholder="Client" required />
+        <select name="ClientId">
+            <option value="1">Client A</option>
+            <option value="2">Client B</option>
+        </select>
         <input name="SiteName" placeholder="Site" required />
 
         <textarea name="Description" placeholder="Description"></textarea>
@@ -26,20 +29,37 @@
 @section Scripts {
 <script>
     const form = document.getElementById('jobForm');
+    const result = document.getElementById('result');
+    const button = form.querySelector('button');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        button.disabled = true;
+        button.innerText = "Submitting...";
+
         const data = Object.fromEntries(new FormData(form));
 
-        const response = await fetch('/api/jobs', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
+        try {
+            const response = await fetch('/api/jobs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
 
-        const result = await response.json();
-        document.getElementById('result').innerText = result.message;
+            const res = await response.json();
+
+            result.innerText = res.message;
+
+            // ✅ Clear form
+            form.reset();
+
+        } catch (err) {
+            result.innerText = "Error submitting job";
+        }
+
+        button.disabled = false;
+        button.innerText = "Submit";
     });
 </script>
 }

@@ -19,4 +19,11 @@ public static class InMemoryWorkOrderStore
     };
 
     public static int NextId => WorkOrders.Count + 1;
+
+    public static List<Client> Clients { get; } = new()
+    {
+        new() { Id = 1, Name = "Client A" },
+        new() { Id = 2, Name = "Client B" }
+    };
+
 }
