@@ -38,7 +38,11 @@ app.MapGet("/api/test", () =>
 
 app.MapPost("/api/jobs", (WorkOrder job) =>
 {
-    // For now just return success
+    job.Id = MMLHub.Web.Services.InMemoryWorkOrderStore.NextId;
+    job.LoggedDate = DateTime.Now;
+
+    MMLHub.Web.Services.InMemoryWorkOrderStore.WorkOrders.Add(job);
+
     return Results.Ok(new { message = "Job submitted successfully" });
 });
 
