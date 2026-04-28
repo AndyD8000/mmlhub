@@ -8,10 +8,12 @@ namespace MMLHub.Web.Pages;
 public class WorkOrdersModel : PageModel
 {
     private readonly IWorkOrderService _service;
+    private readonly CurrentUserService _currentUser;
 
-    public WorkOrdersModel(IWorkOrderService service)
+    public WorkOrdersModel(IWorkOrderService service, CurrentUserService currentUser)
     {
         _service = service;
+        _currentUser = currentUser;
     }
 
     public List<WorkOrder> WorkOrders { get; set; } = new();
@@ -28,15 +30,6 @@ public class WorkOrdersModel : PageModel
     public int Closed => WorkOrders.Count(x => x.Status == "Closed");
 
     //public int CurrentClientId => 1; // simulate logged-in client
-
-    private readonly IWorkOrderService _service;
-    private readonly CurrentUserService _currentUser;
-
-    public WorkOrdersModel(IWorkOrderService service, CurrentUserService currentUser)
-    {
-        _service = service;
-        _currentUser = currentUser;
-    }
 
     public async Task OnGetAsync()
     {
