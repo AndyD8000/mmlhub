@@ -3,5 +3,43 @@
 
 <div class="hub-card">
     <h1>Log Job</h1>
-    <p>Job logging form placeholder.</p>
+
+    <form id="jobForm">
+        <input name="Reference" placeholder="Reference" required />
+        <input name="ClientName" placeholder="Client" required />
+        <input name="SiteName" placeholder="Site" required />
+
+        <textarea name="Description" placeholder="Description"></textarea>
+
+        <select name="Status">
+            <option>Open</option>
+            <option>In Progress</option>
+            <option>Closed</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="result"></p>
 </div>
+
+@section Scripts {
+<script>
+    const form = document.getElementById('jobForm');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(form));
+
+        const response = await fetch('/api/jobs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        document.getElementById('result').innerText = result.message;
+    });
+</script>
+}

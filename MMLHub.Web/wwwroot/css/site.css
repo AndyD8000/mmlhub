@@ -118,3 +118,10 @@ input, select, button {
   margin-right: 10px;
   font-size: 14px;
 }
+
+form input, form textarea, form select {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+}

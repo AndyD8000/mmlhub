@@ -1,3 +1,5 @@
+using MMLHub.Web.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -33,5 +35,11 @@ app.MapGet("/api/test", () =>
         new { id = 2, job = "Test Job 2", status = "Closed" }
     };
 });   
+
+app.MapPost("/api/jobs", (WorkOrder job) =>
+{
+    // For now just return success
+    return Results.Ok(new { message = "Job submitted successfully" });
+});
 
 app.Run();
