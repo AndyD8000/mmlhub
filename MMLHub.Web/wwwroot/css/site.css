@@ -85,3 +85,30 @@ body {
       grid-template-columns: 1fr;
   }
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+thead {
+  background: #f3f4f6;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #d1d5db;
+  font-weight: 600;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
