@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject MMLHub.Web.Services.CurrentUserService CurrentUser
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,10 +20,15 @@
             <a asp-page="/Dashboard">Dashboard</a>
             <a asp-page="/WorkOrders">Work Orders</a>
             <a asp-page="/JobLog">Log Job</a>
+
+            @if (CurrentUser.IsAdmin)
+            {
+                <a asp-page="/Admin/Index">Admin</a>
+            }
         </nav>
 
         <div class="hub-user">
-            <span>Not signed in</span>
+            <span>@CurrentUser.UserName (@CurrentUser.Role)</span>
         </div>
     </header>
 
