@@ -7,6 +7,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddScoped<MMLHub.Web.Services.IWorkOrderService, MMLHub.Web.Services.MockWorkOrderService>();
 
+builder.Services.AddScoped<MMLHub.Web.Services.CurrentUserService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
