@@ -4,6 +4,29 @@
 <div class="hub-card">
     <h1>Work Orders</h1>
 
+    <!-- Summary -->
+    <div class="hub-grid">
+        <div class="hub-card">Total: @Model.Total</div>
+        <div class="hub-card">Open: @Model.Open</div>
+        <div class="hub-card">In Progress: @Model.InProgress</div>
+        <div class="hub-card">Closed: @Model.Closed</div>
+    </div>
+
+    <!-- Filters -->
+    <form method="get" style="margin-top:20px;">
+        <input type="text" name="Search" placeholder="Search..." value="@Model.Search" />
+
+        <select name="Status">
+            <option value="">All</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Closed">Closed</option>
+        </select>
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <!-- Table -->
     <table>
         <thead>
             <tr>
