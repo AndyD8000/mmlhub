@@ -10,39 +10,50 @@
 </head>
 <body>
     <header class="hub-header">
-        <div class="hub-brand">
-            <strong>MML Hub</strong>
-            <span>DEV</span>
+        <div class="hub-header-inner">
+            <div class="hub-brand">
+                <strong>MML Hub</strong>
+                <span>DEV</span>
+            </div>
+
+            <nav class="hub-nav">
+                <a asp-page="/Index">Home</a>
+                <a asp-page="/Dashboard">Dashboard</a>
+                <a asp-page="/WorkOrders">Work Orders</a>
+                <a asp-page="/JobLog">Log Job</a>
+
+                @if (CurrentUser.IsAdmin)
+                {
+                    <a asp-page="/Admin/Index">Admin</a>
+                }
+            </nav>
+
+            <div class="hub-user">
+                @if (CurrentUser.IsSignedIn)
+                {
+                    <span>@CurrentUser.UserName (@CurrentUser.Role)</span>
+                    <a asp-page="/Logout">Logout</a>
+                }
+                else
+                {
+                    <a asp-page="/Login">Login</a>
+                }
+            </div>
         </div>
-
-        <nav class="hub-nav">
-            <a asp-page="/Index">Home</a>
-            <a asp-page="/Dashboard">Dashboard</a>
-            <a asp-page="/WorkOrders">Work Orders</a>
-            <a asp-page="/JobLog">Log Job</a>
-
-            @if (CurrentUser.IsAdmin)
-            {
-                <a asp-page="/Admin/Index">Admin</a>
-            }
-        </nav>
-
-    <div class="hub-user">
-        @if (CurrentUser.IsSignedIn)
-        {
-            <span>@CurrentUser.UserName (@CurrentUser.Role)</span>
-            <a asp-page="/Logout">Logout</a>
-        }
-        else
-        {
-            <a asp-page="/Login">Login</a>
-        }
-    </div>
     </header>
 
-    <main class="hub-main">
+    
+    @if (ViewData["FullWidth"] as bool? == true)
+    {
         @RenderBody()
-    </main>
+    }
+    else
+    {
+        <main class="hub-main">
+            @RenderBody()
+        </main>
+    }
+
 
     <footer class="hub-footer">
         <span>MML Hub Development Environment</span>

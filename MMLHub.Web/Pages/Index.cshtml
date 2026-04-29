@@ -1,13 +1,136 @@
 ﻿@page
 @model IndexModel
+@{
+    ViewData["Title"] = "MML Hub";
+}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>MML Hub</title>
-</head>
-<body>
-    <h1>MML Hub DEV</h1>
-    <p>Welcome to the MML Hub</p>
-</body>
-</html>
+<div class="home-page">
+    <div class="home-inner">
+
+        <section class="hub-hero">
+            <div class="hero-content">
+                <p class="eyebrow">MML Hub</p>
+
+                <h1>Run your entire FM operation from one platform.</h1>
+
+                <p class="hero-text">
+                    Real-time jobs, compliance, reporting and client insight — all connected through one smart, safe and sustainable platform.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn-primary" asp-page="/WorkOrders">View Work Orders</a>
+                    <a class="btn-secondary" asp-page="/WorkOrders">Log a Job</a>
+                </div>
+            </div>
+
+            <div class="hero-panel">
+                <div class="panel-header">
+                    <span>Live Operations</span>
+                    <span class="status-dot">● Online</span>
+                </div>
+
+                <div class="metric-grid">
+                    <div>
+                        <strong>42</strong>
+                        <span>Open Jobs</span>
+                    </div>
+                    <div>
+                        <strong>97%</strong>
+                        <span>SLA Compliance</span>
+                    </div>
+                    <div>
+                        <strong>18</strong>
+                        <span>Completed Today</span>
+                    </div>
+                    <div>
+                        <strong>6</strong>
+                        <span>Priority Alerts</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="value-strip">
+            <div>
+                <strong>Smart</strong>
+                <span>Data-driven decisions</span>
+            </div>
+            <div>
+                <strong>Safe</strong>
+                <span>Compliance-first workflows</span>
+            </div>
+            <div>
+                <strong>Sustainable</strong>
+                <span>ESG and energy insight</span>
+            </div>
+        </section>
+
+        <section class="section-heading">
+            <p class="eyebrow">Platform Modules</p>
+            <h2>Everything connected. Everyone aligned.</h2>
+        </section>
+
+        <section class="module-grid">
+            <a class="module-card" asp-page="/WorkOrders">
+                <span class="module-icon">🛠</span>
+                <h3>Work Orders</h3>
+                <p>Create, assign, track and complete jobs from one central workflow.</p>
+            </a>
+
+            <div class="module-card">
+                <span class="module-icon">📊</span>
+                <h3>Live Dashboards</h3>
+                <p>Real-time visibility of SLA performance, jobs, cost and compliance.</p>
+            </div>
+
+            <div class="module-card">
+                <span class="module-icon">📁</span>
+                <h3>Reporting</h3>
+                <p>Automated client reports replacing manual spreadsheets and exports.</p>
+            </div>
+
+            <div class="module-card">
+                <span class="module-icon">👥</span>
+                <h3>Client Portal</h3>
+                <p>Client-specific views for requests, approvals, KPIs and service updates.</p>
+            </div>
+
+            <div class="module-card">
+                <span class="module-icon">🔐</span>
+                <h3>User Access</h3>
+                <p>Role-based access, secure login and controlled client permissions.</p>
+            </div>
+
+            <div class="module-card">
+                <span class="module-icon">🌱</span>
+                <h3>Sustainability</h3>
+                <p>Future-ready ESG, carbon and energy reporting built into the platform.</p>
+            </div>
+        </section>
+
+        <section class="journey-section">
+            <div>
+                <p class="eyebrow">Built for every user</p>
+                <h2>One platform. Different views. Shared truth.</h2>
+                <p>
+                    Operations teams get control, engineers get mobile-first job tools, and clients get clear real-time visibility of performance.
+                </p>
+            </div>
+
+            <div class="journey-cards">
+                <div>
+                    <strong>Operations</strong>
+                    <span>Control jobs, SLAs and resources.</span>
+                </div>
+                <div>
+                    <strong>Engineers</strong>
+                    <span>Update work quickly from site.</span>
+                </div>
+                <div>
+                    <strong>Clients</strong>
+                    <span>See progress, reports and KPIs.</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

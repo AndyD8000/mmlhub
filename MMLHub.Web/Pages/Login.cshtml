@@ -1,19 +1,36 @@
 @page
 @model MMLHub.Web.Pages.LoginModel
 
-<div class="hub-card" style="max-width:420px;margin:60px auto;">
-    <h1>MML Hub Login</h1>
-    <p>Select a demo user to continue.</p>
+<div class="login-page">
+    <section class="login-hero">
+        <!-- <img src="~/images/mml-logo.png" alt="MML" class="logo" /> -->
+        <h2 style="font-weight:800; letter-spacing:1px;">MML Hub</h2>
+        <p class="eyebrow">Client Portal</p>
+        <h1>Welcome to MML Hub</h1>
+        <p class="hero-text">
+            Secure access to work orders, service requests, dashboards and client-specific reporting.
+        </p>
+        <div class="brand-line">Smart · Safe · Sustainable</div>
+    </section>
 
-    <form method="post">
-        <label>User</label>
-        <select name="DemoUser" required>
-            <option value="">Select user</option>
-            <option value="admin">MML Admin</option>
-            <option value="client-a">Client A User</option>
-            <option value="client-b">Client B User</option>
-        </select>
+    <section class="login-card">
+        <h2>Sign in</h2>
+        <p class="muted">Demo access for board review.</p>
 
-        <button type="submit">Sign in</button>
-    </form>
+        <form method="post">
+            <label for="DemoUser">Demo user</label>
+            <select id="DemoUser" name="DemoUser" required>
+                <option value="">Select user</option>
+                <option value="admin">MML Admin</option>
+                <option value="client-a">Client A User</option>
+                <option value="client-b">Client B User</option>
+            </select>
+
+            <button class="primary-button" type="submit">Enter MML Hub</button>
+        </form>
+
+        <p class="small-note">
+            Production access will use SSO, MFA and role-based permissions.
+        </p>
+    </section>
 </div>

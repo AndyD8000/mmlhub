@@ -8,6 +8,11 @@ public class LoginModel : PageModel
     [BindProperty]
     public string DemoUser { get; set; } = string.Empty;
 
+    public void OnGet()
+    {
+        ViewData["FullWidth"] = true;
+    }
+
     public IActionResult OnPost()
     {
         switch (DemoUser)
