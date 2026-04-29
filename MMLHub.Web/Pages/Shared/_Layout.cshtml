@@ -27,9 +27,17 @@
             }
         </nav>
 
-        <div class="hub-user">
+    <div class="hub-user">
+        @if (CurrentUser.IsSignedIn)
+        {
             <span>@CurrentUser.UserName (@CurrentUser.Role)</span>
-        </div>
+            <a asp-page="/Logout">Logout</a>
+        }
+        else
+        {
+            <a asp-page="/Login">Login</a>
+        }
+    </div>
     </header>
 
     <main class="hub-main">

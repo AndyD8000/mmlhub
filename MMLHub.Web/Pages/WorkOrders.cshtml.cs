@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MMLHub.Web.Models;
 using MMLHub.Web.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MMLHub.Web.Pages;
 
@@ -31,8 +32,14 @@ public class WorkOrdersModel : PageModel
 
     //public int CurrentClientId => 1; // simulate logged-in client
 
-    public async Task OnGetAsync()
+    public async Task<IActionResult> OnGetAsync()
     {
+
+        if (!_currentUser.IsSignedIn)
+        {
+            return RedirectToPage("/Login");
+        }
+
         var data = await _service.GetWorkOrdersAsync();
 
         // 👇 Add this filter FIRST
@@ -56,5 +63,7 @@ public class WorkOrdersModel : PageModel
         }
 
         WorkOrders = data;
+
+        return Page();
     }
 }

@@ -5,6 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddScoped<MMLHub.Web.Services.IWorkOrderService, MMLHub.Web.Services.MockWorkOrderService>();
 
 builder.Services.AddScoped<MMLHub.Web.Services.CurrentUserService>();
@@ -26,6 +29,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+app.UseSession();
 app.MapRazorPages()
    .WithStaticAssets();
 

@@ -1,0 +1,19 @@
+@page
+@model MMLHub.Web.Pages.LoginModel
+
+<div class="hub-card" style="max-width:420px;margin:60px auto;">
+    <h1>MML Hub Login</h1>
+    <p>Select a demo user to continue.</p>
+
+    <form method="post">
+        <label>User</label>
+        <select name="DemoUser" required>
+            <option value="">Select user</option>
+            <option value="admin">MML Admin</option>
+            <option value="client-a">Client A User</option>
+            <option value="client-b">Client B User</option>
+        </select>
+
+        <button type="submit">Sign in</button>
+    </form>
+</div>
