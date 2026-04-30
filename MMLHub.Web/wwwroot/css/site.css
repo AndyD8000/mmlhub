@@ -5,6 +5,12 @@ body {
   color: #1f2933;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .hub-header {
   background: #111827;
   color: white;
@@ -287,10 +293,11 @@ form input, form textarea, form select {
   .login-page {
     grid-template-columns: 1fr;
     min-height: calc(100vh - 56px);
+    overflow-x: hidden;
   }
 
   .login-hero {
-    padding: 40px 24px 32px;
+    padding: 32px 20px 24px;
   }
 
   .login-hero h1 {
@@ -303,11 +310,15 @@ form input, form textarea, form select {
   }
 
   .login-card {
-    width: calc(100% - 48px);
+    width: calc(100% - 24px);
     max-width: 420px;
-    margin: 0 auto 40px;
-    padding: 28px;
-    border-radius: 24px;
+    margin: 0 auto 32px;
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .login-card h2 {
+    font-size: 26px;
   }
 }
 
@@ -332,7 +343,7 @@ form input, form textarea, form select {
   grid-template-columns: 1.3fr 0.7fr;
   gap: 2rem;
   align-items: center;
-  padding: 4rem 0;
+  padding: 28px 0;
 }
 
 .hero-content h1 {
@@ -419,7 +430,7 @@ form input, form textarea, form select {
 }
 
 .value-strip div {
-  padding: 24px;
+  padding: 16px 0;
 }
 
 .value-strip strong {
@@ -443,7 +454,7 @@ form input, form textarea, form select {
 .module-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 14px;
   margin-bottom: 4rem;
 }
 
@@ -497,7 +508,7 @@ form input, form textarea, form select {
 
 @media (max-width: 800px) {
   .home-page {
-    padding: 32px 20px;
+    padding: 24px 16px;
     overflow-x: hidden;
   }
 
@@ -513,28 +524,45 @@ form input, form textarea, form select {
   }
 
   .hero-content h1 {
-    font-size: clamp(42px, 14vw, 58px);
+    font-size: clamp(36px, 10vw, 48px);
     line-height: 1.05;
   }
 
   .hero-text {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.5;
   }
 
   .hero-actions {
     flex-direction: column;
+    gap: 12px;
   }
 
   .btn-primary,
   .btn-secondary {
     display: block;
     width: 100%;
+    max-width: 100%;
     text-align: center;
+    padding: 14px;
+  }
+
+  .hero-panel,
+  .module-card,
+  .journey-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 18px;
+    border-radius: 20px;
   }
 
   .metric-grid {
     grid-template-columns: 1fr 1fr;
+    padding: 12px;
+  }
+
+  .metric-grid strong {
+    font-size: 1.6rem;
   }
 
   .module-grid,
@@ -546,4 +574,82 @@ form input, form textarea, form select {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
+
+
+/* LIGHT MODE - MML Website Inspired */
+
+.light-mode {
+  background: #f7f8f4;
+  color: #041428;
+}
+
+.light-mode .hub-header {
+  background: #ffffff;
+  color: #041428;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.light-mode .hub-brand,
+.light-mode .hub-nav a,
+.light-mode .hub-nav a:visited {
+  color: #041428;
+}
+
+.light-mode .hub-nav a:hover {
+  color: var(--mml-green);
+}
+
+.light-mode .hub-user a {
+  color: #041428;
+  border-color: rgba(4, 20, 40, 0.18);
+}
+
+.light-mode .home-page {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f8f4 100%);
+  color: #041428;
+}
+
+.light-mode .eyebrow {
+  color: var(--mml-green);
+}
+
+.light-mode .hero-content h1 {
+  color: #041428;
+}
+
+.light-mode .hero-text,
+.light-mode .module-card p,
+.light-mode .journey-section p,
+.light-mode .value-strip span,
+.light-mode .metric-grid span,
+.light-mode .journey-cards span {
+  color: #4b5563;
+}
+
+.light-mode .hero-panel,
+.light-mode .module-card,
+.light-mode .journey-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 50px rgba(4, 20, 40, 0.08);
+}
+
+.light-mode .metric-grid div,
+.light-mode .journey-cards div {
+  background: #f3f6ef;
+}
+
+.light-mode .value-strip {
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.light-mode .btn-secondary {
+  color: #041428;
+  border-color: rgba(4, 20, 40, 0.2);
+}
+
+.light-mode .btn-secondary:hover {
+  border-color: var(--mml-green);
 }
